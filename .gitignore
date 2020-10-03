@@ -1,5 +1,8 @@
 .idea
 .DS_Store
-temp
-PUD
+PUDs
 venv
+temp
+ud-treebanks-v2.6.tgz
+ud-treebanks-v2.6
+unprocessedData/hi
