@@ -8,6 +8,6 @@ preprocess:
 		mkdir processedData; \
 	fi;
 
-get_data: preprocess
+hi: preprocess
 	sh generalScripts/get_pud.sh;
 	sh languageSpecificScripts/hi/prepareData.sh;
