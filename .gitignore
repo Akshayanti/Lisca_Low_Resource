@@ -1,8 +1,10 @@
 .idea
 .DS_Store
-PUDs
+**/__pycache__
+__pycache__
 venv
-temp
 ud-treebanks-v2.6.tgz
 ud-treebanks-v2.6
-unprocessedData/hi
+PUDs
+processedData
+temp
