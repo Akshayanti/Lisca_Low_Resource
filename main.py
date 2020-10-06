@@ -20,7 +20,7 @@ if __name__ == "__main__":
                         help="Input files to read data from in txt format. Multiple values possible.")
     group0.add_argument("-id", "--input_directory", type=str,
                         help="Parent directory to read txt files from. Reads .txt files recursively.")
-    parser.add_argument("--lang_code", type=str, choices=['hi', 'ar', 'cs', 'de', 'en', 'fi', 'ko', 'ja'],
+    parser.add_argument("--lang_code", type=str, choices=['en', 'hi', 'ja', 'ko', 'ar', 'cs', 'fi', 'id', 'th', 'tr', 'zh'],
                         help="ISO Language Code for which txt files would be opened",
                         required=True)
     args = parser.parse_args()
