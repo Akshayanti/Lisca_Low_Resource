@@ -2,21 +2,26 @@
 
 <h2>Data Source</h2>
 
-| S.No. | Language Name | Language Code | Data Source | Link |
-|:------|:--------------|:-------------:|:------------|:---------------|
-| 1.    | English :white_check_mark: | en            |  Wikipedia Dumps | [Dump](https://dumps.wikimedia.org/enwiki/20201001/enwiki-20201001-pages-articles-multistream1.xml-p1p41242.bz2) |
-| 2.    | Hindi :white_check_mark: | hi            |  Kaggle (Wikipedia) | [Link](https://www.kaggle.com/disisbig/hindi-wikipedia-articles-172k) |
-| 3.    | Japanese :white_check_mark: | ja    | Wikipedia Dumps |  [Dump1](https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream6.xml-p2807948p4224212.bz2), [Dump2](https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream1.xml-p1p114794.bz2)    |
-| 4.    | Korean :white_check_mark: | ko    | Wikipedia Dumps |  [Dump1](https://dumps.wikimedia.org/kowiki/20201001/kowiki-20201001-pages-articles-multistream5.xml-p983495p1770440.bz2), [Dump2](https://dumps.wikimedia.org/kowiki/20201001/kowiki-20201001-pages-articles-multistream4.xml-p550364p983494.bz2)    |
+<h3>Languages Ready to be Used</h3>
 
-Languages Coming Soon:
-- Arabic (ar)
-- Zhou Chinese (zh)
-- Czech (cs)
-- Finnish (fi)
-- Indonesian (id)
-- Thai (th)
-- Turkish (tr)
+| S.No. | Language Name | Tokens (in M) | Data Source | Link |
+|:------|:--------------|:----------------:|:------------|:---------------|
+| 1.    | `ar` : <i>al-arabiyyah</i> (Arabic) | 31.511 |  Wikipedia Dump | [Dump](https://dumps.wikimedia.org/arwiki/20201001/arwiki-20201001-pages-articles-multistream4.xml-p2482316p3982315.bz2) |
+| 2.    | `en`: English | 41.039 |  Wikipedia Dump | [Dump](https://dumps.wikimedia.org/enwiki/20201001/enwiki-20201001-pages-articles-multistream1.xml-p1p41242.bz2) |
+| 3.    | `hi`: Hindi | 26.072 |  Kaggle (Wikipedia) | [Link](https://www.kaggle.com/disisbig/hindi-wikipedia-articles-172k) |
+| 4.    | `id`: <i>bahasa Indonesia</i> (Indonesian) | 83.685 | Wikipedia Dump |  [Dump](https://dumps.wikimedia.org/idwiki/20201001/idwiki-20201001-pages-articles-multistream.xml.bz2)   |
+| 5.    | `ja`: <i>nihongo</i> (Japanese) | 31.938 | Wikipedia Dumps |  [Dump1](https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream6.xml-p2807948p4224212.bz2), [Dump2](https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream1.xml-p1p114794.bz2)    |
+| 6.    | `ko`: <i>hangugeo</i> (Korean) | 31.510 | Wikipedia Dumps |  [Dump1](https://dumps.wikimedia.org/kowiki/20201001/kowiki-20201001-pages-articles-multistream5.xml-p983495p1770440.bz2), [Dump2](https://dumps.wikimedia.org/kowiki/20201001/kowiki-20201001-pages-articles-multistream4.xml-p550364p983494.bz2)    |
+| 7.    | `th`: <i>phasa Thai</i> (Thai) | 13.305 | Wikipedia Dump |  [Dump](https://dumps.wikimedia.org/thwiki/20201001/thwiki-20201001-pages-articles-multistream.xml.bz2)   |
+| 8.    | `tr`: <i>turk dili</i> (Turkish) | 60.234 | Wikipedia Dump |  [Dump](https://dumps.wikimedia.org/trwiki/20201001/trwiki-20201001-pages-articles-multistream.xml.bz2)   |
+
+<h3>Languages To Be Added</h3>
+
+- `cs` : <i>cestina</i> (Czech)
+- `fi` : <i>suomen kieli</i> (Finnish)
+- `pl` : <i>polski</i> (Polish)
+- `ru` : <i>russkiy jizyk</i> (Russian)
+- `zh` : <i>hanyu</i> (Chinese)
 
 <h2>How to Use the Repo</h2>
 
