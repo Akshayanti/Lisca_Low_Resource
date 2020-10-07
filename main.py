@@ -1,11 +1,15 @@
 import argparse
 import os
 import importlib
+import sys
 
 
 def set_language_data(lang_code):
     global langSpecCode
-    langSpecCode = importlib.import_module("languageSpecificScripts.{x}.main".format(x=lang_code))
+    if lang_code in ["hi"]:
+        langSpecCode = importlib.import_module("languageSpecificScripts.{x}.main".format(x=lang_code))
+    elif lang_code in ["en", "ko", "ja"]:
+        langSpecCode = importlib.import_module("generalScripts.process_wiki_dump")
     importlib.invalidate_caches()
 
 
@@ -16,7 +20,7 @@ if __name__ == "__main__":
                         help="Input files to read data from in txt format. Multiple values possible.")
     group0.add_argument("-id", "--input_directory", type=str,
                         help="Parent directory to read txt files from. Reads .txt files recursively.")
-    parser.add_argument("--lang_code", type=str, choices=['hi', 'ar', 'cs', 'de', 'en', 'fi'],
+    parser.add_argument("--lang_code", type=str, choices=['en', 'hi', 'ja', 'ko', 'ar', 'cs', 'fi', 'id', 'th', 'tr', 'zh'],
                         help="ISO Language Code for which txt files would be opened",
                         required=True)
     args = parser.parse_args()
@@ -28,10 +32,10 @@ if __name__ == "__main__":
     elif args.input_directory:
         for root, dirs, files in os.walk(args.input_directory):
             for filename in files:
-                if filename.endswith(".txt"):
+                if filename.endswith(".txt") or filename.endswith(".xml"):
                     input_files.append(os.path.join(root, filename))
 
     set_language_data(lang_code=args.lang_code)
-    all_content = langSpecCode.process_input_files(input_files)
+    all_content = langSpecCode.process_input_files(input_files, args.lang_code)
 
     print(all_content)
