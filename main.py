@@ -8,7 +8,7 @@ def set_language_data(lang_code):
     global langSpecCode
     if lang_code in ["hi"]:
         langSpecCode = importlib.import_module("languageSpecificScripts.{x}.main".format(x=lang_code))
-    elif lang_code in ["en", "ko", "ja"]:
+    else:
         langSpecCode = importlib.import_module("generalScripts.process_wiki_dump")
     importlib.invalidate_caches()
 
