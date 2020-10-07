@@ -4,10 +4,10 @@
 
 | S.No. | Language Name | Language Code | Data Source | Link |
 |:------|:--------------|:-------------:|:------------|:---------------|
-| 1.    | English :white_check_mark: | en            |  Wikipedia Dumps | https://dumps.wikimedia.org/enwiki/20201001/enwiki-20201001-pages-articles-multistream1.xml-p1p41242.bz2 |
-| 2.    | Hindi :white_check_mark: | hi            |  Kaggle (Wikipedia) | https://www.kaggle.com/disisbig/hindi-wikipedia-articles-172k |
-| 3.    | Japanese :white_check_mark: | ja    | Wikipedia Dumps |  https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream1.xml-p1p114794.bz2    |
-| 4.    | Korean :white_check_mark: | ko    | Wikipedia Dumps |  https://dumps.wikimedia.org/kowiki/20201001/kowiki-20201001-pages-articles-multistream4.xml-p550364p983494.bz2    |
+| 1.    | English :white_check_mark: | en            |  Wikipedia Dumps | [Dump](https://dumps.wikimedia.org/enwiki/20201001/enwiki-20201001-pages-articles-multistream1.xml-p1p41242.bz2) |
+| 2.    | Hindi :white_check_mark: | hi            |  Kaggle (Wikipedia) | [Link](https://www.kaggle.com/disisbig/hindi-wikipedia-articles-172k) |
+| 3.    | Japanese :white_check_mark: | ja    | Wikipedia Dumps |  [Dump1](https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream6.xml-p2807948p4224212.bz2), [Dump2](https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream1.xml-p1p114794.bz2)    |
+| 4.    | Korean :white_check_mark: | ko    | Wikipedia Dumps |  [Dump1](https://dumps.wikimedia.org/kowiki/20201001/kowiki-20201001-pages-articles-multistream5.xml-p983495p1770440.bz2), [Dump2](https://dumps.wikimedia.org/kowiki/20201001/kowiki-20201001-pages-articles-multistream4.xml-p550364p983494.bz2)    |
 
 Languages Coming Soon:
 - Arabic (ar)

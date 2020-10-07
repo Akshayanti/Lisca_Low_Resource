@@ -20,9 +20,9 @@ def process_input(input_file, lang_code):
 
 def process_input_files(files_list, lang_code):
     new_list = sorted(files_list, key=lambda x:int(x.split("/")[-1].split(".txt")[0]))
-    a = ""
+    a = set()
     for x in tqdm(new_list, desc="Files Completed", ncols=100):
-        text = process_input(x)
+        text = process_input(x, lang_code)
         if text:
-            a += text + "\n"
-    return a
+            a.add(text + "\n")
+    return "".join(list(a))

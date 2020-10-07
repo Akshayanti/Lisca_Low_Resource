@@ -8,7 +8,6 @@ import sys
 
 
 def parse_data(input_file):
-    print("Reading XMLs. This might take a while depending on the language and number of files", file=sys.stderr)
     infile = open(input_file, "r", encoding="utf-8")
     data = infile.read()
     infile.close()
@@ -17,14 +16,13 @@ def parse_data(input_file):
 
 def filter_content(input_files):
     strings = []
-    for input_file in input_files:
+    for input_file in tqdm.tqdm(input_files, desc="Reading Input Files (Step 1 of 4)", ncols=100):
         soup = parse_data(input_file)
         pages_data = soup.find_all('revision')[1:]
         for page in pages_data:
             text = [x for x in list(page.children) if x.name == "text"][0].text
             if text.strip().lstrip().rstrip() != "":
                 strings.append(text)
-    print("XMLs Finished Reading. Starting Filtering Through Data", file=sys.stderr)
     return strings
 
 
@@ -77,37 +75,25 @@ def remove_links(line):
     return " ".join(out_list).replace("  ", " ")
 
 
-def process_string(article, lang_code):
-    print("Removing Extraneous Metadata", file=sys.stderr)
+def process_string(article, translations):
     final_article = ""
     noParse = False
     for lines in article.split("\n"):
         line = lines.lstrip().rstrip()
-        if line.startswith("|}"):
-            noParse = False
+        if line == "":
+            continue
+        if any(line.startswith(x) for x in ["|}", "{|"]):
+            noParse = False if line.startswith("|") else True
             continue
         if noParse:
             continue
-        if line == "":
-            continue
-        if line.startswith("=="):
-            continue
-        if line.startswith("{|"):
-            noParse = True
-            continue
-        if line.startswith("{{"):
-            continue
-        if line.startswith("*") or line.startswith(":") or line.startswith("#"):
-            continue
-        if line.startswith("<!--"):
+        if any(line.startswith(x) for x in ["{{", "*", ":", "#", "<!--", "=="]):
             continue
         if "File:" in line:
             continue
         line = standardize_quotes(line)
         line = remove_links(line)
-        classify_text = ["Category:", "Classification:"]
-        translator = Translator(to_lang=lang_code)
-        if any([line.startswith(translator.translate(x)) for x in classify_text]):
+        if any([line.startswith(x) for x in translations]):
             continue
         if line.strip("\n").lstrip().rstrip() != "":
             final_article += line.lstrip().rstrip() + "\n"
@@ -116,28 +102,45 @@ def process_string(article, lang_code):
 
 def process_strings(input_list, lang_code):
     out_list = []
-    for given_text in input_list:
-        out_list.append(process_string(given_text, lang_code))
+    classify_text = ["Category", "Classification", "Categorization"]
+    translator = Translator(to_lang=lang_code)
+    translated_text = [translator.translate(x) for x in classify_text] + classify_text
+    for given_text in tqdm.tqdm(input_list, desc="Filtering Data (Step 2 of 4)", ncols=100):
+        out_list.append(process_string(given_text, translated_text))
     return out_list
 
 
 def remove_refs(lines):
     before_change = len(lines.split("\n"))
-    new_line, after_change = re.subn(r'<([A-Z][A-Z0-9]*)\b[^>]*>(.*?)</\1>', "", lines, flags=re.IGNORECASE)
-    new_line, _ = re.subn(r'<([A-Z0-9]*)(\b.*)>(.*?)</\1>', "", new_line, flags=re.IGNORECASE | re.MULTILINE)
-    new_line, _2 = re.subn(r'<([A-Z0-9]*)(\b.*)>(\n*.*\n*)</\1>', "", new_line, flags=re.IGNORECASE | re.MULTILINE)
-    new_line, _3 = re.subn(r'<([A-Z0-9]*)(\b.*)>\n*(.+\n)*</\1>', "", new_line, flags=re.IGNORECASE | re.MULTILINE)
+    new_line, _ = re.subn(r'<([A-Z][A-Z0-9]*)\b[^>]*>(.*?)<(/( )*\1|\1( )*\\)>', "", lines, flags=re.IGNORECASE)
+    new_line, _ = re.subn(r'<([A-Z0-9]*)(\b.*)>(.*?)<(/( )*\1|\1( )*\\)>', "", new_line, flags=re.IGNORECASE | re.MULTILINE)
+    new_line, _ = re.subn(r'<([A-Z0-9]*)(\b.*)>(\n*.*\n*)<(/( )*\1|\1( )*\\)>', "", new_line, flags=re.IGNORECASE | re.MULTILINE)
+    new_line, _ = re.subn(r'<([A-Z0-9]*)(\b.*)>\n*(.+\n)*<(/( )*\1|\1( )*\\)>', "", new_line, flags=re.IGNORECASE | re.MULTILINE)
+    new_line, _ = re.subn(r'\w+=(\w+)?', "", new_line, flags=re.IGNORECASE | re.MULTILINE)
+    new_line, _ = re.subn(r' ( +)', " ", new_line, flags=re.IGNORECASE | re.MULTILINE)
+    new_line, _ = re.subn(r'(http|https)://(.[^\s]*)', "", new_line, flags=re.IGNORECASE | re.MULTILINE)
     new_line2 = len(new_line.split("\n"))
     if new_line2 * 100 / before_change <= 90.0:
         return None
     else:
-        return new_line
+        new_line2 = ""
+        for x in new_line.split("\n"):
+            if "=" in x or x == "" or len(x.split()) < 4 or new_line.startswith("<!--"):
+                pass
+            else:
+                new_line2 += x + "\n"
+        return new_line2
 
 
 def process_input_files(input_files, lang_code):
-    final_string = ""
+    final_string = set()
     data = filter_content(input_files)
-    for x in tqdm.tqdm(process_strings(data, lang_code), desc="Final HouseKeeping", ncols=100):
+    for x in tqdm.tqdm(process_strings(data, lang_code), desc="Final HouseKeeping (Step 3 of 4)", ncols=100):
         if remove_refs(x):
-            final_string += remove_refs(x)
-    return final_string
+            final_string.add(remove_refs(x))
+    print("Writing Final Data (Step 4 of 4)", file=sys.stderr)
+    return " ".join(list(final_string))
+
+
+if __name__ == "__main__":
+    print(process_input_files(sys.argv[1:], "en"))
