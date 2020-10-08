@@ -1,29 +1,11 @@
 #!/usr/bin/env python3
 
-from bs4 import BeautifulSoup as bs
 from translate import Translator
 import re
 import tqdm
-import sys
-
-
-def parse_data(input_file):
-    infile = open(input_file, "r", encoding="utf-8")
-    data = infile.read()
-    infile.close()
-    return bs(data, 'xml')
-
-
-def filter_content(input_files):
-    strings = []
-    for input_file in tqdm.tqdm(input_files, desc="Reading Input Files (Step 1 of 4)", ncols=100):
-        soup = parse_data(input_file)
-        pages_data = soup.find_all('revision')[1:]
-        for page in pages_data:
-            text = [x for x in list(page.children) if x.name == "text"][0].text
-            if text.strip().lstrip().rstrip() != "":
-                strings.append(text)
-    return strings
+import _pickle as c_pickle
+import bz2
+import logging
 
 
 def standardize_quotes(line):
@@ -132,15 +114,20 @@ def remove_refs(lines):
         return new_line2
 
 
-def process_input_files(input_files, lang_code):
+def decompress_pickle(inpickle):
+    data = bz2.BZ2File(inpickle, 'rb')
+    data = c_pickle.load(data)
+    return data
+
+
+def process_input_files(inpickle, lang_code):
+    logging.basicConfig(format='%(asctime)s \t %(levelname)s \t %(message)s', level=logging.INFO)
+    logging.info("Reading Stored Pickle (Step 1 of 4)")
+    data = decompress_pickle(inpickle)
+    logging.info("Finished Reading Pickle")
     final_string = set()
-    data = filter_content(input_files)
     for x in tqdm.tqdm(process_strings(data, lang_code), desc="Final HouseKeeping (Step 3 of 4)", ncols=100):
         if remove_refs(x):
             final_string.add(remove_refs(x))
-    print("Writing Final Data (Step 4 of 4)", file=sys.stderr)
+    logging.info("Writing Final Data (Step 4 of 4)")
     return " ".join(list(final_string))
-
-
-if __name__ == "__main__":
-    print(process_input_files(sys.argv[1:], "en"))
