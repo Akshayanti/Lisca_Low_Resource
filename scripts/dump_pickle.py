@@ -18,7 +18,8 @@ def parse_data(input_file):
 
 def filter_content(in_files):
     strings = []
-    for input_file in tqdm.tqdm(in_files, desc="Reading Input Files (Step 1 of 2)", ncols=100):
+    logging.info("Reading Input File(s) (Step 1 of 2)")
+    for input_file in tqdm.tqdm(in_files, desc="Progress", ncols=100):
         soup = parse_data(input_file)
         pages_data = soup.find_all('revision')[1:]
         for page in pages_data:
@@ -30,7 +31,7 @@ def filter_content(in_files):
 
 
 def pickle_data(input_list, lang_code):
-    logging.info("Dumping Created Pickle (Step 2 of 2)")
+    logging.info("Dumping Pickle On Local Storage (Step 2 of 2)")
     with bz2.BZ2File("{x}.pickle".format(x=lang_code), "w") as f:
         c_pickle.dump(input_list, f)
     return
@@ -58,4 +59,4 @@ if __name__ == "__main__":
 
     logging.basicConfig(format='%(asctime)s \t %(levelname)s \t %(message)s', level=logging.INFO)
     pickle_data(filter_content(input_files), args.lang_code)
-    logging.info("Pickle Dumped. Closing any stranded threads.")
+    logging.info("Closing any stranded threads")

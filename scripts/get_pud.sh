@@ -1,22 +1,26 @@
 #!/usr/bin/env bash
 
 if [ ! -d PUDs ]; then \
-	if [ ! -d ud-treebanks-v2.6 ]; then \
-		if [ ! -f ud-treebanks-v2.6.tgz ]; then \
-			status=18 ; \
-			while [ $status -ne 0 ]; do \
-				curl -C - --remote-name-all https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3226/ud-treebanks-v2.6.tgz; \
-				status=$?; \
-			done; \
+
+	if [ ! -f ud-treebanks-v2.6.tgz ]; then \
+		status=18 ; \
+		while [ $status -ne 0 ]; do \
+			curl -C - --remote-name-all https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3226/ud-treebanks-v2.6.tgz; \
+			status=$?; \
+		done; \
 		echo "Download Complete"; \
-		fi; \
-		tar -xf ud-treebanks-v2.6.tgz; \
 	fi; \
+
+	tar -xf ud-treebanks-v2.6.tgz; \
 	mkdir PUDs; \
+
 	for x in ud-treebanks-v2.6/UD_*-PUD; do \
 		cp -r $x PUDs/; \
 	done; \
-	rm -rf ud-treebanks-v2.6; \
+
+	du -h ../; \
+	rm -rf ud-treebanks-v2.6*; \
+
 fi;
 
 if [ -d PUDs/UD_Turkish-PUD ]; then \

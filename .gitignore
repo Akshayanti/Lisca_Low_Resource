@@ -9,10 +9,15 @@ ud-treebanks-v2.6
 PUDs
 processedData
 temp*
+unprocessedData/ar
+unprocessedData/cs
 unprocessedData/en
+unprocessedData/fi
+unprocessedData/id
 unprocessedData/ja
 unprocessedData/ko
-unprocessedData/ar
-unprocessedData/id
+unprocessedData/pl
 unprocessedData/tr
 unprocessedData/th
+unprocessedData/ru
+unprocessedData/zh

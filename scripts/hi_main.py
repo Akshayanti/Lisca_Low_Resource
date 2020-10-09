@@ -2,6 +2,7 @@ import sys
 from tqdm import tqdm
 import argparse
 import os
+import logging
 
 
 def process_input(input_file):
@@ -23,10 +24,12 @@ def process_input(input_file):
 def process_input_files(files_list):
     new_list = sorted(files_list, key=lambda x:int(x.split("/")[-1].split(".txt")[0]))
     a = set()
+    logging.info("Reading and Filtering Data (Step 1 of 2)")
     for x in tqdm(new_list, desc="Files Completed", ncols=100):
         text = process_input(x)
         if text:
             a.add(text + "\n")
+    logging.info("Writing Final Data (Step 2 of 2)")
     return "".join(list(a))
 
 
@@ -50,4 +53,6 @@ if __name__ == "__main__":
                 if filename.endswith(".txt") or filename.endswith(".xml"):
                     input_files.append(os.path.join(root, filename))
 
+    logging.basicConfig(format='%(asctime)s \t %(levelname)s \t %(message)s', level=logging.INFO)
     print(process_input_files(input_files))
+    logging.info("Closing any stranded threads")
