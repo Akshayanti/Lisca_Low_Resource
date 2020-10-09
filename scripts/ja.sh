@@ -15,10 +15,10 @@ if [ ! -f ja.pickle ]; then \
 		echo "$Red Dump1 XML File Not Found" >&2; \
 
 		if [ ! -f wikiDump.bz2 ]; then \
-			echo "$Red Downloading Dump1 XML File" >&2; \
+			echo "$Red Downloading Dump1 Zip File" >&2; \
 			status=18 ; \
 			while [ $status -ne 0 ]; do \
-				curl -C - --remote-name-all https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream6.xml-p2807948p4224212.bz2; \
+				curl -C - --remote-name-all https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream5.xml-p1721647p2807947.bz2; \
 				status=$?; \
 			done; \
 			mv jawiki-20201001-*.bz2 wikiDump.bz2; \
@@ -39,6 +39,7 @@ if [ ! -f ja.pickle ]; then \
 		echo "$Red Dump2 XML File Not Found" >&2; \
 
 		if [ ! -f wikiDump2.bz2 ]; then \
+			echo "$Red Downloading Dump2 Zip File" >&2; \
 			status=18 ; \
 			while [ $status -ne 0 ]; do \
 				curl -C - --remote-name-all https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream1.xml-p1p114794.bz2; \

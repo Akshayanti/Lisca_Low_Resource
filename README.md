@@ -4,27 +4,25 @@
 
 The objective of this repository is to clean the wikipedia dumps (XML format, containing article texts, media links, etc.) 
 for most languages automatically. While the result is not perfect, it does however provide with enough for the output data
-to be used in downstream applications  
-as automate a pipeline that works for most wikipedia dumps,
-as and when
+to be used in downstream applications.
 
 <h2>Data Source and Statistics</h2>
 
 | S.No. | Language Name | Tokens (in M) | Data Source | Link |
 |:------|:--------------|:----------------:|:------------|:---------------|
-| 1.    | `ar` : <i>al-arabiyyah</i> (Arabic) | 31.511 |  Wikipedia Dump | [Used Dump](https://dumps.wikimedia.org/arwiki/20201001/arwiki-20201001-pages-articles-multistream4.xml-p2482316p3982315.bz2) |
+| 1.    | `ar` : <i>al-arabiyyah</i> (Arabic) | ? |  Wikipedia Dump | [Used Dump](https://dumps.wikimedia.org/arwiki/20201001/arwiki-20201001-pages-articles-multistream4.xml-p2482316p3982315.bz2) |
 | 2.    | `cs` : <i>cestina</i> (Czech) | 78.004 | Wikipedia Dump |  [Complete Dump](https://dumps.wikimedia.org/cswiki/20201001/cswiki-20201001-pages-articles-multistream.xml.bz2)   |
 | 3.    | `en`: English | 41.039 |  Wikipedia Dump | [Used Dump](https://dumps.wikimedia.org/enwiki/20201001/enwiki-20201001-pages-articles-multistream1.xml-p1p41242.bz2) |
 | 4.    | `fi` : <i>suomen kieli</i> (Finnish) | 87.317 | Wikipedia Dump |  [Complete Dump](https://dumps.wikimedia.org/fiwiki/20201001/fiwiki-20201001-pages-articles-multistream.xml.bz2)   |
 | 5.    | `hi`: Hindi | 26.072 |  Kaggle (Wikipedia) | [Kaggle Link](https://www.kaggle.com/disisbig/hindi-wikipedia-articles-172k) |
 | 6.    | `id`: <i>bahasa Indonesia</i> (Indonesian) | 83.685 | Wikipedia Dump |  [Complete Dump](https://dumps.wikimedia.org/idwiki/20201001/idwiki-20201001-pages-articles-multistream.xml.bz2)   |
-| 7.    | `ja`: <i>nihongo</i> (Japanese) | 31.938 | Wikipedia Dumps |  [Used Dump 1](https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream6.xml-p2807948p4224212.bz2), [Used Dump 2](https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream1.xml-p1p114794.bz2)    |
-| 8.    | `ko`: <i>hangugeo</i> (Korean) | 31.510 | Wikipedia Dumps |  [Used Dump 1](https://dumps.wikimedia.org/kowiki/20201001/kowiki-20201001-pages-articles-multistream5.xml-p983495p1770440.bz2), [Used Dump 2](https://dumps.wikimedia.org/kowiki/20201001/kowiki-20201001-pages-articles-multistream4.xml-p550364p983494.bz2)    |
+| 7.    | `ja`: <i>nihongo</i> (Japanese) | ? | Wikipedia Dumps |  [Used Dump 1](https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream6.xml-p2807948p4224212.bz2), [Used Dump 2](https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream1.xml-p1p114794.bz2)    |
+| 8.    | `ko`: <i>hangugeo</i> (Korean) | ? | Wikipedia Dumps |  [Complete Dump 1](https://dumps.wikimedia.org/kowiki/20201001/kowiki-20201001-pages-articles-multistream5.xml-p983495p1770440.bz2), [Used Dump 2](https://dumps.wikimedia.org/kowiki/20201001/kowiki-20201001-pages-articles-multistream.xml.bz2)    |
 | 9.    | `pl` : <i>polski</i> (Polish) | 62.613 |  Wikipedia Dump | [Used Dump](https://dumps.wikimedia.org/plwiki/20201001/plwiki-20201001-pages-articles-multistream5.xml-p2047893p3462393.bz2) |
 | 10.   | `ru` : <i>russkiy jizyk</i> (Russian) | 84.734 |  Wikipedia Dump | [Used Dump](https://dumps.wikimedia.org/ruwiki/20201001/ruwiki-20201001-pages-articles-multistream5.xml-p3835773p5335772.bz2) |
 | 11.   | `th`: <i>phasa Thai</i> (Thai) | 13.305 | Wikipedia Dump |  [Complete Dump](https://dumps.wikimedia.org/thwiki/20201001/thwiki-20201001-pages-articles-multistream.xml.bz2)   |
 | 12.   | `tr`: <i>turk dili</i> (Turkish) | 60.234 | Wikipedia Dump |  [Complete Dump](https://dumps.wikimedia.org/trwiki/20201001/trwiki-20201001-pages-articles-multistream.xml.bz2)   |
-| 13.   | `zh` : <i>hanyu</i> (Chinese) | 9.903 |  Wikipedia Dump | [Used Dump1](https://dumps.wikimedia.org/zhwiki/20201001/zhwiki-20201001-pages-articles-multistream6.xml-p5596380p7096379.bz2) |
+| 13.   | `zh` : <i>hanyu</i> (Chinese) | ? |  Wikipedia Dump | [Complete Dump](https://dumps.wikimedia.org/zhwiki/20201001/zhwiki-20201001-pages-articles-multistream.xml.bz2) |
 
 <h2>How to Use this Repo</h2>
 
@@ -66,6 +64,17 @@ a pickle (to allow subsequent easier runs when you'd like to run it again) for t
 files in `myDir` directory, saving the pickle as `myLanguageCode.pickle`:
        
 `python3 scripts/dump_pickle.py -id myDir --lang_code myLanguageCode`
+
+<b>Note:</b>  
+
+- Running the following command will automatically download and pickle the latest available wiki dump for 
+the given language with language code as `langCode`:
+
+    `sh scripts/download_complete_dump.sh langCode`
+
+- If you want to download a specific dump (for example, let's say from `20191201`), it can be done by running the following command:
+
+    `sh scripts/download_complete_dump.sh langCode 20191201`
 
 <h4>Using Pickle to Write Output</h4>
 
