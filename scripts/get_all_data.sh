@@ -3,7 +3,7 @@
 Red=$'\e[1;31m'
 echo "$Red " >&2;
 
-for x in en ar id ja ko th tr; do \
+for x in ar cs en; do \
 	echo "********************************************"; \
 	echo "*********** Getting Data for " $x " **********"; \
 	echo "********************************************"; \
@@ -12,7 +12,21 @@ for x in en ar id ja ko th tr; do \
 done;
 
 echo "********************************************";
-echo "************ Getting PUD Data **************";
+echo "*********** Getting Data for fi ************";
 echo "********************************************";
+sh scripts/fi.sh;
+echo "";
 
-sh scripts/get_pud.sh;
+echo "********************************************";
+echo "*********** Getting Data for hi ************";
+echo "********************************************";
+sh scripts/hi.sh;
+echo "";
+
+for x in id ja ko pl ru th tr zh; do \
+	echo "********************************************"; \
+	echo "*********** Getting Data for " $x " **********"; \
+	echo "********************************************"; \
+	sh scripts/$x.sh; \
+	echo ""; \
+done;

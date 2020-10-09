@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-.PHONY: preprocess
-.SILENT: preprocess ar en hi id ja ko tr th pud all
+.PHONY: preprocess all
+.SILENT: preprocess ar cs en fi hi id ja ko pl ru tr th zh all final
 
 preprocess:
 	python3 -m venv venv;
@@ -18,6 +18,13 @@ ar: preprocess
 	wc -l processedData/ar.txt;
 	echo "Dataset for 'ar' Ready in processedData Directory." 2>&1;
 
+cs: preprocess
+	sh scripts/cs.sh;
+	python3 main.py -i unprocessedData/cs/cs.pickle --lang_code cs > processedData/cs.txt;
+	wc -w processedData/cs.txt;
+	wc -l processedData/cs.txt;
+	echo "Dataset for 'cs' Ready in processedData Directory." 2>&1;
+
 en: preprocess
 	sh scripts/en.sh;
 	python3 main.py -i unprocessedData/en/en.pickle --lang_code en > processedData/en.txt;
@@ -25,10 +32,20 @@ en: preprocess
 	wc -l processedData/en.txt;
 	echo "Dataset for 'en' Ready in processedData Directory." 2>&1;
 
+fi: preprocess
+	sh scripts/fi.sh;
+	python3 main.py -i unprocessedData/fi/fi.pickle --lang_code fi > processedData/fi.txt;
+	wc -w processedData/fi.txt;
+	wc -l processedData/fi.txt;
+	echo "Dataset for 'fi' Ready in processedData Directory." 2>&1;
+
 hi: preprocess
 	sh scripts/hi.sh;
+	python3 scripts/hi_main.py  -id unprocessedData/hi/files > processedData/hi.txt;
+	rm -rf unprocessedData/hi/files;
 	wc -w processedData/hi.txt;
 	wc -l processedData/hi.txt;
+	echo "Dataset for 'hi' Ready in processedData Directory." 2>&1;
 
 id: preprocess
 	sh scripts/id.sh;
@@ -51,6 +68,20 @@ ko: preprocess
 	wc -l processedData/ko.txt;
 	echo "Dataset for 'ko' Ready in processedData Directory." 2>&1;
 
+pl: preprocess
+	sh scripts/pl.sh;
+	python3 main.py -i unprocessedData/pl/pl.pickle --lang_code pl > processedData/pl.txt;
+	wc -w processedData/pl.txt;
+	wc -l processedData/pl.txt;
+	echo "Dataset for 'pl' Ready in processedData Directory." 2>&1;
+
+ru: preprocess
+	sh scripts/ru.sh;
+	python3 main.py -i unprocessedData/ru/ru.pickle --lang_code ru > processedData/ru.txt;
+	wc -w processedData/ru.txt;
+	wc -l processedData/ru.txt;
+	echo "Dataset for 'ru' Ready in processedData Directory." 2>&1;
+
 th: preprocess
 	sh scripts/th.sh;
 	python3 main.py -i unprocessedData/th/th.pickle --lang_code th > processedData/th.txt;
@@ -65,9 +96,17 @@ tr: preprocess
 	wc -l processedData/tr.txt;
 	echo "Dataset for 'tr' Ready in processedData Directory." 2>&1;
 
-pud:
-	sh scripts/get_pud.sh;
+zh: preprocess
+	sh scripts/zh.sh;
+	python3 main.py -i unprocessedData/zh/zh.pickle --lang_code zh > processedData/zh.txt;
+	wc -w processedData/zh.txt;
+	wc -l processedData/zh.txt;
+	echo "Dataset for 'zh' Ready in processedData Directory." 2>&1;
 
 all: preprocess
 	sh scripts/get_all_data.sh;
-	make pud;
+	sh scripts/process_all_data.sh;
+
+final: preprocess
+	sh scripts/get_pud.sh;
+	echo  "Edit here";

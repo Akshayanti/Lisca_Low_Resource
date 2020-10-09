@@ -87,8 +87,10 @@ def process_strings(input_list, lang_code):
     classify_text = ["Category", "Classification", "Categorization"]
     translator = Translator(to_lang=lang_code)
     translated_text = [translator.translate(x) for x in classify_text] + classify_text
-    for given_text in tqdm.tqdm(input_list, desc="Filtering Data (Step 2 of 4)", ncols=100):
+    logging.info("Cleaning Data (Step 2 of 4)")
+    for given_text in tqdm.tqdm(input_list, desc="Progress", ncols=100):
         out_list.append(process_string(given_text, translated_text))
+    logging.info("Final HouseKeeping (Step 3 of 4)")
     return out_list
 
 
@@ -124,9 +126,8 @@ def process_input_files(inpickle, lang_code):
     logging.basicConfig(format='%(asctime)s \t %(levelname)s \t %(message)s', level=logging.INFO)
     logging.info("Reading Stored Pickle (Step 1 of 4)")
     data = decompress_pickle(inpickle)
-    logging.info("Finished Reading Pickle")
     final_string = set()
-    for x in tqdm.tqdm(process_strings(data, lang_code), desc="Final HouseKeeping (Step 3 of 4)", ncols=100):
+    for x in tqdm.tqdm(process_strings(data, lang_code), desc="Progress", ncols=100):
         if remove_refs(x):
             final_string.add(remove_refs(x))
     logging.info("Writing Final Data (Step 4 of 4)")

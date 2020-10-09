@@ -20,10 +20,11 @@ if [ ! -f ar.pickle ]; then \
 			curl -C - --remote-name-all https://dumps.wikimedia.org/arwiki/20201001/arwiki-20201001-pages-articles-multistream4.xml-p2482316p3982315.bz2; \
 			status=$?; \
 		  done; \
-		  echo "$Red Download Complete. Inflating zipped file" >&2; \
+		  echo "$Red Download Completed" >&2; \
 		  mv arwiki-20201001-*.bz2 wikiDump.bz2; \
 	  fi; \
 
+	  echo "$Red Inflating zipped file" >&2; \
 	  bzip2 -d wikiDump.bz2; \
 	  mv wikiDump wikiDump.xml; \
 	  echo "$Red Zip Inflation Completed"; \
@@ -32,4 +33,6 @@ if [ ! -f ar.pickle ]; then \
 	echo "$Red Creating Pickle for First Use" >&2; \
 	python3 ../../scripts/dump_pickle.py -id ./ --lang_code ar; \
 	echo "$Red Pickle Created" >&2; \
+else
+	echo "$Red Pickle Exists. No Action Necessary" >&2; \
 fi;
