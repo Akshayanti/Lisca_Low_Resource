@@ -19,7 +19,7 @@ ar: preprocess
 	echo "Dataset for 'ar' Ready in processedData Directory." 2>&1;
 
 cs: preprocess
-	sh scripts/cs.sh;
+	sh scripts/download_complete_dump.sh cs 20201001;
 	python3 main.py -i unprocessedData/cs/cs.pickle --lang_code cs > processedData/cs.txt;
 	wc -w processedData/cs.txt;
 	wc -l processedData/cs.txt;
@@ -33,7 +33,7 @@ en: preprocess
 	echo "Dataset for 'en' Ready in processedData Directory." 2>&1;
 
 fi: preprocess
-	sh scripts/fi.sh;
+	sh scripts/download_complete_dump.sh fi 20201001;
 	python3 main.py -i unprocessedData/fi/fi.pickle --lang_code fi > processedData/fi.txt;
 	wc -w processedData/fi.txt;
 	wc -l processedData/fi.txt;
@@ -48,7 +48,7 @@ hi: preprocess
 	echo "Dataset for 'hi' Ready in processedData Directory." 2>&1;
 
 id: preprocess
-	sh scripts/id.sh;
+	sh scripts/download_complete_dump.sh id 20201001;
 	python3 main.py -i unprocessedData/id/id.pickle --lang_code id > processedData/id.txt;
 	wc -w processedData/id.txt;
 	wc -l processedData/id.txt;
@@ -62,7 +62,7 @@ ja: preprocess
 	echo "Dataset for 'ja' Ready in processedData Directory." 2>&1;
 
 ko: preprocess
-	sh scripts/ko.sh;
+	sh scripts/download_complete_dump.sh ko 20201001;
 	python3 main.py -i unprocessedData/ko/ko.pickle --lang_code ko > processedData/ko.txt;
 	wc -w processedData/ko.txt;
 	wc -l processedData/ko.txt;
@@ -83,14 +83,14 @@ ru: preprocess
 	echo "Dataset for 'ru' Ready in processedData Directory." 2>&1;
 
 th: preprocess
-	sh scripts/th.sh;
+	sh scripts/download_complete_dump.sh th 20201001;
 	python3 main.py -i unprocessedData/th/th.pickle --lang_code th > processedData/th.txt;
 	wc -w processedData/th.txt;
 	wc -l processedData/th.txt;
 	echo "Dataset for 'th' Ready in processedData Directory." 2>&1;
 
 tr: preprocess
-	sh scripts/tr.sh;
+	sh scripts/download_complete_dump.sh tr 20201001;
 	python3 main.py -i unprocessedData/tr/tr.pickle --lang_code tr > processedData/tr.txt;
 	wc -w processedData/tr.txt;
 	wc -l processedData/tr.txt;

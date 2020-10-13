@@ -103,6 +103,7 @@ def remove_refs(lines):
     new_line, _ = re.subn(r'\w+=(\w+)?', "", new_line, flags=re.IGNORECASE | re.MULTILINE)
     new_line, _ = re.subn(r' ( +)', " ", new_line, flags=re.IGNORECASE | re.MULTILINE)
     new_line, _ = re.subn(r'(http|https)://(.[^\s]*)', "", new_line, flags=re.IGNORECASE | re.MULTILINE)
+    new_line, _ = re.subn(r'<.*?>', "", new_line, flags=re.IGNORECASE | re.MULTILINE)
     new_line2 = len(new_line.split("\n"))
     if new_line2 * 100 / before_change <= 90.0:
         return None

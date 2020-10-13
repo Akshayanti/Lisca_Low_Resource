@@ -3,19 +3,13 @@
 Red=$'\e[1;31m'
 echo "$Red " >&2;
 
-for x in ar cs en; do \
+for x in cs "fi" id ko th tr; do \
 	echo "********************************************"; \
 	echo "*********** Getting Data for " $x " **********"; \
 	echo "********************************************"; \
-	sh scripts/$x.sh; \
+	sh scripts/download_complete_dump.sh $x 20201001; \
 	echo ""; \
 done;
-
-echo "********************************************";
-echo "*********** Getting Data for fi ************";
-echo "********************************************";
-sh scripts/fi.sh;
-echo "";
 
 echo "********************************************";
 echo "*********** Getting Data for hi ************";
@@ -23,7 +17,7 @@ echo "********************************************";
 sh scripts/hi.sh;
 echo "";
 
-for x in id ja ko pl ru th tr zh; do \
+for x in ar en ja pl ru zh; do \
 	echo "********************************************"; \
 	echo "*********** Getting Data for " $x " **********"; \
 	echo "********************************************"; \
