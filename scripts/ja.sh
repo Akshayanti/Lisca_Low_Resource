@@ -42,7 +42,7 @@ if [ ! -f ja.pickle ]; then \
 			echo "$Red Downloading Dump2 Zip File" >&2; \
 			status=18 ; \
 			while [ $status -ne 0 ]; do \
-				curl -C - --remote-name-all https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream1.xml-p1p114794.bz2; \
+				curl -C - --remote-name-all https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream6.xml-p2807948p4224212.bz2; \
 				status=$?; \
 			done; \
 			mv jawiki-20201001-*.bz2 wikiDump2.bz2; \

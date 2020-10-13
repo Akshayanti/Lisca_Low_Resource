@@ -56,7 +56,7 @@ if [ ! -f $1.pickle ]; then \
 				curl -C - --remote-name-all https://dumps.wikimedia.org/`echo $lang_code`wiki/`echo $dump_date`/`echo $lang_code`wiki-`echo $dump_date`-pages-articles-multistream.xml.bz2; \
 				status=$?; \
 			done; \
-
+			mv `echo $lang_code`wiki-`echo $dump_date`-*.bz2 wikiDump.bz2; \
 			echo "$Red Download Completed" >&2; \
 		fi; \
 

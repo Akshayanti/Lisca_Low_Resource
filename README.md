@@ -10,19 +10,19 @@ to be used in downstream applications.
 
 | S.No. | Language Name | Tokens (in M) | Data Source | Link |
 |:------|:--------------|:----------------:|:------------|:---------------|
-| 1.    | `ar` : <i>al-arabiyyah</i> (Arabic) | ? |  Wikipedia Dump | [Used Dump](https://dumps.wikimedia.org/arwiki/20201001/arwiki-20201001-pages-articles-multistream4.xml-p2482316p3982315.bz2) |
+| 1.    | `ar` : <i>al-arabiyyah</i> (Arabic) | 66.790 |  Wikipedia Dump | [Used Dump](https://dumps.wikimedia.org/arwiki/20201001/arwiki-20201001-pages-articles-multistream4.xml-p2482316p3982315.bz2) |
 | 2.    | `cs` : <i>cestina</i> (Czech) | 78.004 | Wikipedia Dump |  [Complete Dump](https://dumps.wikimedia.org/cswiki/20201001/cswiki-20201001-pages-articles-multistream.xml.bz2)   |
 | 3.    | `en`: English | 41.039 |  Wikipedia Dump | [Used Dump](https://dumps.wikimedia.org/enwiki/20201001/enwiki-20201001-pages-articles-multistream1.xml-p1p41242.bz2) |
 | 4.    | `fi` : <i>suomen kieli</i> (Finnish) | 87.317 | Wikipedia Dump |  [Complete Dump](https://dumps.wikimedia.org/fiwiki/20201001/fiwiki-20201001-pages-articles-multistream.xml.bz2)   |
 | 5.    | `hi`: Hindi | 26.072 |  Kaggle (Wikipedia) | [Kaggle Link](https://www.kaggle.com/disisbig/hindi-wikipedia-articles-172k) |
 | 6.    | `id`: <i>bahasa Indonesia</i> (Indonesian) | 83.685 | Wikipedia Dump |  [Complete Dump](https://dumps.wikimedia.org/idwiki/20201001/idwiki-20201001-pages-articles-multistream.xml.bz2)   |
-| 7.    | `ja`: <i>nihongo</i> (Japanese) | ? | Wikipedia Dumps |  [Used Dump 1](https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream6.xml-p2807948p4224212.bz2), [Used Dump 2](https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream1.xml-p1p114794.bz2)    |
-| 8.    | `ko`: <i>hangugeo</i> (Korean) | ? | Wikipedia Dumps |  [Complete Dump 1](https://dumps.wikimedia.org/kowiki/20201001/kowiki-20201001-pages-articles-multistream5.xml-p983495p1770440.bz2), [Used Dump 2](https://dumps.wikimedia.org/kowiki/20201001/kowiki-20201001-pages-articles-multistream.xml.bz2)    |
+| 7.    | `ja`: <i>nihongo</i> (Japanese) | 39.517M | Wikipedia Dumps |  [Used Dump 1](https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream6.xml-p2807948p4224212.bz2), [Used Dump 2](https://dumps.wikimedia.org/jawiki/20201001/jawiki-20201001-pages-articles-multistream1.xml-p1p114794.bz2)    |
+| 8.    | `ko`: <i>hangugeo</i> (Korean) | 82.155 | Wikipedia Dumps |  [Complete Dump 1](https://dumps.wikimedia.org/kowiki/20201001/kowiki-20201001-pages-articles-multistream5.xml-p983495p1770440.bz2), [Used Dump 2](https://dumps.wikimedia.org/kowiki/20201001/kowiki-20201001-pages-articles-multistream.xml.bz2)    |
 | 9.    | `pl` : <i>polski</i> (Polish) | 62.613 |  Wikipedia Dump | [Used Dump](https://dumps.wikimedia.org/plwiki/20201001/plwiki-20201001-pages-articles-multistream5.xml-p2047893p3462393.bz2) |
 | 10.   | `ru` : <i>russkiy jizyk</i> (Russian) | 84.734 |  Wikipedia Dump | [Used Dump](https://dumps.wikimedia.org/ruwiki/20201001/ruwiki-20201001-pages-articles-multistream5.xml-p3835773p5335772.bz2) |
-| 11.   | `th`: <i>phasa Thai</i> (Thai) | 13.305 | Wikipedia Dump |  [Complete Dump](https://dumps.wikimedia.org/thwiki/20201001/thwiki-20201001-pages-articles-multistream.xml.bz2)   |
+| 11.   | `th`: <i>phasa Thai</i> (Thai) | ? | Wikipedia Dump |  [Complete Dump](https://dumps.wikimedia.org/thwiki/20201001/thwiki-20201001-pages-articles-multistream.xml.bz2)   |
 | 12.   | `tr`: <i>turk dili</i> (Turkish) | 60.234 | Wikipedia Dump |  [Complete Dump](https://dumps.wikimedia.org/trwiki/20201001/trwiki-20201001-pages-articles-multistream.xml.bz2)   |
-| 13.   | `zh` : <i>hanyu</i> (Chinese) | ? |  Wikipedia Dump | [Complete Dump](https://dumps.wikimedia.org/zhwiki/20201001/zhwiki-20201001-pages-articles-multistream.xml.bz2) |
+| 13.   | `zh` : <i>hanyu</i> (Chinese) | ? |  Wikipedia Dump | [Dump1](https://dumps.wikimedia.org/zhwiki/20201001/zhwiki-20201001-pages-articles-multistream6.xml-p5596380p7096379.bz2), [Dump2]( https://dumps.wikimedia.org/zhwiki/20201001/zhwiki-20201001-pages-articles-multistream3.xml-p630161p1389648.bz2) |
 
 <h2>How to Use this Repo</h2>
 
