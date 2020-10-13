@@ -107,6 +107,12 @@ all: preprocess
 	sh scripts/get_all_data.sh;
 	sh scripts/process_all_data.sh;
 
+dataready: preprocess
+	rm -rf processedData;
+	cat processedData.bzip2.part* > processedData.bzip2;
+	tar -xf processedData.bzip2;
+	echo "Processed Data Ready in processedData Directory" 2>&1;
+
 final: preprocess
 	sh scripts/get_pud.sh;
 	echo  "Edit here";
