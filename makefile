@@ -10,6 +10,7 @@ preprocess:
 	if [ ! -d processedData ]; then \
 		mkdir processedData; \
 	fi;
+	sh scripts/get_pud.sh;
 
 ar: preprocess
 	sh scripts/ar.sh;
@@ -112,7 +113,3 @@ dataready: preprocess
 	cat processedData.bzip2.part* > processedData.bzip2;
 	tar -xf processedData.bzip2;
 	echo "Processed Data Ready in processedData Directory" 2>&1;
-
-final: preprocess
-	sh scripts/get_pud.sh;
-	echo  "Edit here";

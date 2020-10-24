@@ -8,7 +8,7 @@ ud-treebanks-v2.6.tgz
 ud-treebanks-v2.6
 PUDs
 processedData
-temp*
+temp
 unprocessedData/ar
 unprocessedData/cs
 unprocessedData/en
