@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 .PHONY: preprocess all
-.SILENT: preprocess ar cs en fi hi id ja ko pl ru tr th zh all final dataready
+.SILENT: preprocess ar cs en fi hi id ja ko pl ru tr th zh all dataready
 
 preprocess:
 	python3 -m venv venv;
