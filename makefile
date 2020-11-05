@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 .PHONY: preprocess all
-.SILENT: preprocess ar cs en fi hi id ja ko pl ru tr th zh all dataready
+.SILENT: preprocess ar cs en fi hi id ja ko pl ru tr th zh all dataready kfolds
 
 preprocess:
 	python3 -m venv venv;
@@ -113,3 +113,6 @@ dataready: preprocess
 	cat processedData.bzip2.part* > processedData.bzip2;
 	tar -xf processedData.bzip2;
 	echo "Processed Data Ready in processedData Directory" 2>&1;
+
+kfolds: preprocess
+	sh scripts/run-folds.sh;
