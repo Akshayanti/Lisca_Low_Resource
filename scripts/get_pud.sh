@@ -18,8 +18,24 @@ if [ ! -d PUDs ]; then \
 		cp -r $x PUDs/; \
 	done; \
 
-	du -h ../; \
 	rm -rf ud-treebanks-v2.6*; \
+
+	if [ ! -f ud-treebanks-v2.2.tgz ]; then \
+		status=18 ; \
+		while [ $status -ne 0 ]; do \
+			curl -C - --remote-name-all https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-2837/ud-treebanks-v2.2.tgz; \
+			status=$?; \
+		done; \
+		echo "Download Complete"; \
+	fi; \
+
+	tar -xf ud-treebanks-v2.2.tgz; \
+
+	for x in English Spanish Italian; do \
+		cp -rf ud-treebanks-v2.2/UD_`echo ${x}`-PUD PUDs/; \
+	done; \
+
+	rm -rf ud-treebanks-v2.2*; \
 
 fi;
 
