@@ -116,3 +116,12 @@ dataready: preprocess
 
 kfolds: preprocess
 	sh scripts/run-folds.sh;
+
+nonproj: preprocess
+	if [ ! -d lisca_rankings ]; then mkdir lisca_rankings; fi;
+	if [ ! -d lisca_rankings/en ]; then mkdir lisca_rankings/en; fi;
+	unzip lisca_rankings_en.zip;
+	sh nonproj/en_nonproj.sh;
+
+clean_nonproj: preprocess
+	rm -f nonproj/*lisca_compact nonproj/*.tsv;
