@@ -1,4 +1,7 @@
+#!/usr/bin/env python3
+
 import sys
+
 from translate import Translator
 
 if __name__ == "__main__":
