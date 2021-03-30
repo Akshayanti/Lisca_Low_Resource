@@ -5,16 +5,11 @@
        fused is the number of tokens that are split to two or more syntactic words
        The words and fused elements can be omitted if no token is split to smaller syntactic words. -->
   <size>
-    <total>
-      <sentences>1000</sentences>
-      <tokens>21176</tokens>
-      <words>21176</words>
-      <fused>0</fused>
-    </total>
+    <total><sentences>1000</sentences><tokens>21176</tokens><words>21176</words><fused>0</fused></total>
   </size>
-  <lemmas unique="4595"/><!-- the, ,, ., be, of, in, to, and, a, have, he, that, ", as, it -->
-  <forms unique="5370"/><!-- the, ,, ., of, in, to, and, a, was, is, that, ", as, it, for -->
-  <fusions unique="0"/><!--  -->
+  <lemmas unique="4595" /><!-- the, ,, ., be, of, in, to, and, a, have, he, that, ", as, it -->
+  <forms unique="5370" /><!-- the, ,, ., of, in, to, and, a, was, is, that, ", as, it, for -->
+  <fusions unique="0" /><!--  -->
   <!-- Statistics of universal POS tags. The comments show the most frequent lemmas. -->
   <tags unique="17">
     <tag name="ADJ">1540</tag><!-- new, many, more, first, other, such, last, great, high, own -->
@@ -37,58 +32,40 @@
   </tags>
   <!-- Statistics of features and values. The comments show the most frequent word forms. -->
   <feats unique="34">
-    <feat name="Case" value="Acc" upos="PRON">96
-    </feat><!-- it, him, them, her, us, me, himself, themselves, itself, You -->
+    <feat name="Case" value="Acc" upos="PRON">96</feat><!-- it, him, them, her, us, me, himself, themselves, itself, You -->
     <feat name="Case" value="Nom" upos="PRON">388</feat><!-- it, he, they, I, she, we, you -->
     <feat name="Definite" value="Def" upos="DET">1441</feat><!-- the -->
     <feat name="Definite" value="Ind" upos="DET">444</feat><!-- a, an -->
-    <feat name="Degree" value="Cmp" upos="ADJ,ADV">68
-    </feat><!-- more, earlier, greater, longer, better, less, higher, fewer, lower, Elder -->
-    <feat name="Degree" value="Pos" upos="ADJ,ADV">1482
-    </feat><!-- new, many, first, other, such, last, well, great, high, own -->
-    <feat name="Degree" value="Sup" upos="ADJ,ADV">46
-    </feat><!-- best, least, most, biggest, latest, worst, tallest, largest, deepest, earliest -->
+    <feat name="Degree" value="Cmp" upos="ADJ,ADV">68</feat><!-- more, earlier, greater, longer, better, less, higher, fewer, lower, Elder -->
+    <feat name="Degree" value="Pos" upos="ADJ,ADV">1482</feat><!-- new, many, first, other, such, last, well, great, high, own -->
+    <feat name="Degree" value="Sup" upos="ADJ,ADV">46</feat><!-- best, least, most, biggest, latest, worst, tallest, largest, deepest, earliest -->
     <feat name="Foreign" value="Yes" upos="X">6</feat><!-- de, Andes, Force, coup, tipo -->
     <feat name="Gender" value="Fem" upos="PRON">79</feat><!-- her, she, herself -->
     <feat name="Gender" value="Masc" upos="PRON">212</feat><!-- he, his, him, himself -->
     <feat name="Gender" value="Neut" upos="PRON">191</feat><!-- it, its, itself -->
-    <feat name="Mood" value="Ind" upos="AUX,NOUN,VERB">1570
-    </feat><!-- was, is, are, were, has, had, have, said, 's, did -->
-    <feat name="Number" value="Plur" upos="DET,NOUN,NUM,PRON,PROPN">1389
-    </feat><!-- their, they, people, years, we, these, them, our, police, those -->
-    <feat name="Number" value="Sing" upos="ADJ,ADV,AUX,DET,NOUN,PRON,PROPN,SYM,VERB">5893
-    </feat><!-- was, is, it, he, his, this, has, I, her, its -->
-    <feat name="NumType" value="Card" upos="NUM,PROPN">460
-    </feat><!-- one, two, three, million, 10, four, 1, six, 3, 2014 -->
+    <feat name="Mood" value="Ind" upos="AUX,NOUN,VERB">1570</feat><!-- was, is, are, were, has, had, have, said, 's, did -->
+    <feat name="Number" value="Plur" upos="DET,NOUN,NUM,PRON,PROPN">1389</feat><!-- their, they, people, years, we, these, them, our, police, those -->
+    <feat name="Number" value="Sing" upos="ADJ,ADV,AUX,DET,NOUN,PRON,PROPN,SYM,VERB">5893</feat><!-- was, is, it, he, his, this, has, I, her, its -->
+    <feat name="NumType" value="Card" upos="NUM,PROPN">460</feat><!-- one, two, three, million, 10, four, 1, six, 3, 2014 -->
     <feat name="NumType" value="Mult" upos="ADV">4</feat><!-- once, twice -->
-    <feat name="NumType" value="Ord" upos="ADJ">56
-    </feat><!-- first, second, third, 8th, 16th, 20th, 3rd, 5th, 13th, 14th -->
+    <feat name="NumType" value="Ord" upos="ADJ">56</feat><!-- first, second, third, 8th, 16th, 20th, 3rd, 5th, 13th, 14th -->
     <feat name="Person" value="1" upos="AUX,PRON">111</feat><!-- I, we, our, my, us, me, am -->
     <feat name="Person" value="2" upos="PRON">20</feat><!-- you, your -->
-    <feat name="Person" value="3" upos="AUX,PRON,VERB">1240
-    </feat><!-- was, is, it, he, his, has, their, they, her, its -->
+    <feat name="Person" value="3" upos="AUX,PRON,VERB">1240</feat><!-- was, is, it, he, his, has, their, they, her, its -->
     <feat name="Polarity" value="Neg" upos="ADV,DET,PART">100</feat><!-- not, n't, no, n’t, never -->
     <feat name="Poss" value="Yes" upos="PRON">260</feat><!-- his, their, its, her, our, my, whose, your -->
     <feat name="PronType" value="Art" upos="DET">1885</feat><!-- the, a, an -->
-    <feat name="PronType" value="Dem" upos="ADV,DET,PRON,SCONJ">177
-    </feat><!-- this, that, these, then, there, those, here -->
-    <feat name="PronType" value="Int" upos="ADV,DET,PRON,SCONJ">89
-    </feat><!-- when, what, how, which, why, where, whose, who, whatever, whenever -->
+    <feat name="PronType" value="Dem" upos="ADV,DET,PRON,SCONJ">177</feat><!-- this, that, these, then, there, those, here -->
+    <feat name="PronType" value="Int" upos="ADV,DET,PRON,SCONJ">89</feat><!-- when, what, how, which, why, where, whose, who, whatever, whenever -->
     <feat name="PronType" value="Prs" upos="PRON">742</feat><!-- it, he, his, their, they, I, her, its, she, we -->
     <feat name="PronType" value="Rel" upos="ADV,DET,PRON,SCONJ">173</feat><!-- which, that, who, where, when, why -->
     <feat name="Reflex" value="Yes" upos="PRON">10</feat><!-- himself, themselves, itself -->
-    <feat name="Tense" value="Past" upos="AUX,NOUN,VERB">1461
-    </feat><!-- was, were, had, been, said, used, did, took, began, became -->
-    <feat name="Tense" value="Pres" upos="AUX,VERB">738
-    </feat><!-- is, are, has, have, 's, says, do, ’s, does, include -->
-    <feat name="VerbForm" value="Fin" upos="AUX,NOUN,VERB">1735
-    </feat><!-- was, is, are, were, has, had, have, will, would, can -->
-    <feat name="VerbForm" value="Ger" upos="AUX,VERB">291
-    </feat><!-- being, according, following, including, having, making, playing, using, getting, working -->
-    <feat name="VerbForm" value="Inf" upos="AUX,VERB">507
-    </feat><!-- be, have, take, do, go, keep, help, make, see, come -->
-    <feat name="VerbForm" value="Part" upos="AUX,VERB">629
-    </feat><!-- been, used, known, given, made, built, left, released, seen, allowed -->
+    <feat name="Tense" value="Past" upos="AUX,NOUN,VERB">1461</feat><!-- was, were, had, been, said, used, did, took, began, became -->
+    <feat name="Tense" value="Pres" upos="AUX,VERB">738</feat><!-- is, are, has, have, 's, says, do, ’s, does, include -->
+    <feat name="VerbForm" value="Fin" upos="AUX,NOUN,VERB">1735</feat><!-- was, is, are, were, has, had, have, will, would, can -->
+    <feat name="VerbForm" value="Ger" upos="AUX,VERB">291</feat><!-- being, according, following, including, having, making, playing, using, getting, working -->
+    <feat name="VerbForm" value="Inf" upos="AUX,VERB">507</feat><!-- be, have, take, do, go, keep, help, make, see, come -->
+    <feat name="VerbForm" value="Part" upos="AUX,VERB">629</feat><!-- been, used, known, given, made, built, left, released, seen, allowed -->
   </feats>
   <!-- Statistics of universal dependency relations. -->
   <deps unique="47">
