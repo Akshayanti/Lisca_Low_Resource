@@ -109,10 +109,11 @@ all: preprocess
 	sh scripts/process_all_data.sh;
 
 dataready: preprocess
-	rm -rf processedData;
-	cat processedData.bzip2.part* > processedData.bzip2;
-	tar -xf processedData.bzip2;
-	echo "Processed Data Ready in processedData Directory" 2>&1;
+	cd wikiDumps; \
+		rm -rf processedData; \
+		cat wikiDumps.bzip2.part* > wikiDumps.bzip2; \
+		tar -xf wikiDumps.bzip2; \
+		echo "Processed Data Ready in processedData Directory" 2>&1;
 
 kfolds: preprocess
 	sh scripts/run-folds.sh;
